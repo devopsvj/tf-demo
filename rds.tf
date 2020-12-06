@@ -1,4 +1,4 @@
-resource "aws_db_instance" "myrdsgit" {
+resource "aws_db_instance" "default" {
   allocated_storage    = 5
   storage_type         = "gp2"
   engine               = "mysql"
@@ -6,7 +6,7 @@ resource "aws_db_instance" "myrdsgit" {
   instance_class       = "db.t2.micro"
   name                 = "mydb"
   username             = "foo"
-  password             = file("../rds_pass.txt")
+  password             = "${file("../rds_pass.txt")}"
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot = "true"
 }
